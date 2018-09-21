@@ -1,0 +1,61 @@
+<!doctype html>
+<head>
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" type="text/javascript"></script>
+    <link rel=stylesheet type=text/css href="{{ url_for('static', filename='materia.min.css') }}">
+</head>
+<body>
+<div style="margin: 10pt"></div>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-4"></div>
+        <div class="card mb-4">
+        <form action="" method="post">
+            {{ form.csrf_token }}
+            <h3 class="card-header text-white bg-primary">Генератор Морковок</h3>
+            <div class="card-body d-flex justify-content-between align-items-center">
+                {{ form.name_1(size=16, class_="form-control", placeholder="Имя") }} {{ form.val_1(size=8, class_="form-control", placeholder="Сумма") }}
+            </div>
+            <div class="card-body d-flex justify-content-between align-items-center">
+                {{ form.name_2(size=16, class_="form-control", placeholder="Имя") }} {{ form.val_2(size=8, class_="form-control", placeholder="Сумма") }}
+            </div>
+            <div class="card-body d-flex justify-content-between align-items-center">
+                {{ form.name_3(size=16, class_="form-control", placeholder="Имя") }} {{ form.val_3(size=8, class_="form-control", placeholder="Сумма") }}
+            </div>
+            <div class="card-body d-flex justify-content-between align-items-center">
+                {{ form.name_4(size=16, class_="form-control", placeholder="Имя") }} {{ form.val_4(size=8, class_="form-control", placeholder="Сумма") }}
+            </div>
+            <div class="card-body d-flex justify-content-between align-items-center">
+                {{ form.submit(class_="btn btn-primary", style="width: 100%") }}
+            </div>
+        </form>
+        </div>
+        <div class="col-lg-4"></div>
+    </div>
+</div>
+{% if img_src %}
+<div class="modal" id="picModal">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Готово!</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body" align="center">
+        <img src={{img_src}}>
+      </div>
+      <div class="modal-footer">
+        <a href="{{img_src}}" download><button type="button" class="btn btn-primary">Сохранить</button></a>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+$('#picModal').modal('toggle');
+</script>
+{% endif %}
+</body>
