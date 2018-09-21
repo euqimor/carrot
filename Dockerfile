@@ -19,4 +19,4 @@ RUN apk update \
 
 RUN pip install -r requirements.txt
 
-CMD ["carrot-web.py"]
+CMD ["python","carrot-web.py"]
