@@ -8,7 +8,7 @@ def generate_image(contributors, max_val=2200):
     :return: a pillow image object
     """
     contributors = sorted(contributors, key=lambda contributor: contributor[1], reverse=True)
-    carrot = Image.open('carrot_old.png')
+    carrot = Image.open('carrot.png')
 
     for i in range(len(contributors)):
         img = Image.open('scale.png')
