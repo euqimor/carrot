@@ -32,3 +32,7 @@ def main():
         return render_template('carrot.html', form=form, img_src=convert_pil_image(carrot_image))
     print(form.errors)
     return render_template('carrot.html', form=form, img_src=None)
+
+
+if __name__ == '__main__':
+    app.run(host='0.0.0.0',port='8080')
